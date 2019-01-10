@@ -22,6 +22,7 @@ export class EditContentPage extends React.Component<
 
   componentDidMount() {
     const contentPageID = +this.props.match.params.id;
+
     contentPageAPI.find(contentPageID).then((contentPage) => {
       this.setState({
         contentPage,
@@ -30,8 +31,8 @@ export class EditContentPage extends React.Component<
   }
 
   submitEditContentPageForm = (formValues: ContentPageFormValues) => {
-    const { history } = this.props;
-    const id = formValues.id || 0;
+    const { history, match } = this.props;
+    const id = +match.params.id;
 
     contentPageAPI
       .edit(id, {
@@ -39,6 +40,13 @@ export class EditContentPage extends React.Component<
         id,
       })
       .then(() => history.push('/pages'));
+  };
+
+  deleteContentPage = () => {
+    const { history, match } = this.props;
+    const id = +match.params.id;
+
+    contentPageAPI.delete(id).then(() => history.push('/pages'));
   };
 
   render() {
@@ -53,6 +61,14 @@ export class EditContentPage extends React.Component<
         <h1>
           Edit Page: <code>{contentPage.url}</code>
         </h1>
+
+        <button
+          type="button"
+          onClick={this.deleteContentPage}
+          style={{ background: '#f5222d' }}
+        >
+          Delete this page
+        </button>
 
         <ContentPageForm
           initialValues={{ ...contentPage }}

@@ -9,6 +9,13 @@ export const contentPageAPI = {
     return Promise.resolve(pages);
   },
 
+  delete(id: number): Promise<void> {
+    const pages = getItem<ContentPage[]>(STORAGE_NAMESPACE) || [];
+    const updatedPages = pages.filter((page) => page.id !== id);
+    saveItem(STORAGE_NAMESPACE, updatedPages);
+    return Promise.resolve();
+  },
+
   edit(id: number, updatedPage: ContentPage): Promise<void> {
     const pages = getItem<ContentPage[]>(STORAGE_NAMESPACE) || [];
     const updatedPages = pages.map((page) => {

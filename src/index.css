@@ -32,4 +32,5 @@ button {
   padding: 16px 8px;
   background: #096dd9;
   margin-bottom: 16px;
+  cursor: pointer;
 }
