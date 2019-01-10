@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 
 import { ContentPage } from '../../interfaces/ContentPage';
 import { contentPageAPI } from '../../api/contentPageAPI';
@@ -70,6 +70,10 @@ export class EditContentPage extends React.Component<
         >
           Delete this page
         </button>
+
+        <Link to={`/preview/${contentPage.id}`} style={{ float: 'right' }}>
+          Preview this page
+        </Link>
 
         <ContentPageForm
           initialValues={{ ...contentPage }}
