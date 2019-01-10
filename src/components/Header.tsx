@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { pagePaths } from './contentPage/ContentPageRoutes';
+
 export const Header: React.SFC<{}> = () => {
   return (
     <header style={{ padding: '16px', background: '#e8e8e8' }}>
@@ -12,7 +14,11 @@ export const Header: React.SFC<{}> = () => {
             </NavLink>
           </li>
           <li style={{ display: 'inline-block' }}>
-            <NavLink exact to="/pages" activeStyle={{ fontWeight: 600 }}>
+            <NavLink
+              exact
+              to={pagePaths.INDEX}
+              activeStyle={{ fontWeight: 600 }}
+            >
               All Pages
             </NavLink>
           </li>

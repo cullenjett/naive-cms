@@ -68,7 +68,7 @@ export class ContentPageForm extends React.Component<Props, State> {
           <textarea
             name="content"
             id="content"
-            rows={10}
+            rows={15}
             value={this.state.content}
             onChange={this.onFieldChange}
           />

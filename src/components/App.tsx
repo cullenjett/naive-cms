@@ -5,18 +5,16 @@ import { ContentPageRoutes, pagePaths } from './contentPage/ContentPageRoutes';
 import { Header } from './Header';
 import { PreviewRoutes, previewPaths } from './preview/PreviewRoutes';
 
-export class App extends React.Component<{}> {
-  render() {
-    return (
-      <main>
-        <Switch>
-          <Route path={previewPaths.INDEX} component={PreviewRoutes} />
-          <Route component={AppRoutes} />
-        </Switch>
-      </main>
-    );
-  }
-}
+export const App: React.FC<{}> = () => {
+  return (
+    <main>
+      <Switch>
+        <Route path={previewPaths.INDEX} component={PreviewRoutes} />
+        <Route component={AppRoutes} />
+      </Switch>
+    </main>
+  );
+};
 
 const AppRoutes: React.FC<{}> = () => {
   return (
