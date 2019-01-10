@@ -3,6 +3,11 @@ import { Switch, Route, RouteComponentProps } from 'react-router-dom';
 
 import { PreviewPage } from './PreviewPage';
 
+export const previewPaths = {
+  INDEX: '/preview',
+  VIEW: (id: number | string = ':id') => `/preview/${id}`,
+};
+
 export const PreviewRoutes: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <section>
@@ -20,7 +25,7 @@ export const PreviewRoutes: React.FC<RouteComponentProps> = ({ history }) => {
       </button>
 
       <Switch>
-        <Route path="/preview/:id" component={PreviewPage} />
+        <Route path={previewPaths.VIEW()} component={PreviewPage} />
       </Switch>
     </section>
   );

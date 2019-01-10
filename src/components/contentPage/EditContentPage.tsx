@@ -5,6 +5,7 @@ import { ContentPage } from '../../interfaces/ContentPage';
 import { contentPageAPI } from '../../api/contentPageAPI';
 import { ContentPageForm, ContentPageFormValues } from './ContentPageForm';
 import { pagePaths } from './ContentPageRoutes';
+import { previewPaths } from '../preview/PreviewRoutes';
 
 interface State {
   contentPage?: ContentPage;
@@ -71,7 +72,7 @@ export class EditContentPage extends React.Component<
           Delete this page
         </button>
 
-        <Link to={`/preview/${contentPage.id}`} style={{ float: 'right' }}>
+        <Link to={previewPaths.VIEW(contentPage.id)} style={{ float: 'right' }}>
           Preview this page
         </Link>
 

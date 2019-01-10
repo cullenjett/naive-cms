@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ContentPage } from '../../interfaces/ContentPage';
 import { contentPageAPI } from '../../api/contentPageAPI';
 import { pagePaths } from './ContentPageRoutes';
+import { previewPaths } from '../preview/PreviewRoutes';
 
 interface State {
   contentPages: ContentPage[];
@@ -35,7 +36,7 @@ export class ContentPageIndex extends React.Component<{}, State> {
           {contentPages.map((page) => (
             <li key={page.url}>
               {page.url} <Link to={pagePaths.EDIT(page.id)}>(Edit)</Link>{' '}
-              <Link to={`/preview/${page.id}`}>(Preview)</Link>
+              <Link to={previewPaths.VIEW(page.id)}>(Preview)</Link>
             </li>
           ))}
         </ul>

@@ -3,14 +3,14 @@ import { Switch, Route } from 'react-router-dom';
 
 import { ContentPageRoutes, pagePaths } from './contentPage/ContentPageRoutes';
 import { Header } from './Header';
-import { PreviewRoutes } from './preview/PreviewRoutes';
+import { PreviewRoutes, previewPaths } from './preview/PreviewRoutes';
 
 export class App extends React.Component<{}> {
   render() {
     return (
       <main>
         <Switch>
-          <Route path="/preview" component={PreviewRoutes} />
+          <Route path={previewPaths.INDEX} component={PreviewRoutes} />
           <Route component={AppRoutes} />
         </Switch>
       </main>
@@ -20,7 +20,7 @@ export class App extends React.Component<{}> {
 
 const AppRoutes: React.FC<{}> = () => {
   return (
-    <div className="app">
+    <React.Fragment>
       <Header />
 
       <div style={{ padding: '16px 32px' }}>
@@ -29,6 +29,6 @@ const AppRoutes: React.FC<{}> = () => {
           <Route path={pagePaths.INDEX} component={ContentPageRoutes} />
         </Switch>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
