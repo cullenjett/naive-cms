@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { ContentPage } from '../../interfaces/ContentPage';
 import { ContentPageForm, ContentPageFormValues } from './ContentPageForm';
 import { contentPageAPI } from '../../api/contentPageAPI';
+import { pagePaths } from './ContentPageRoutes';
 
 export const NewContentPage: React.FC<RouteComponentProps> = ({ history }) => {
   const submitNewContentPageForm = (formValues: ContentPageFormValues) => {
@@ -13,7 +14,7 @@ export const NewContentPage: React.FC<RouteComponentProps> = ({ history }) => {
     };
 
     return contentPageAPI.save(newContentPage).then(() => {
-      history.push('/pages');
+      history.push(pagePaths.INDEX);
     });
   };
 

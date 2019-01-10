@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { ContentPage } from '../../interfaces/ContentPage';
 import { contentPageAPI } from '../../api/contentPageAPI';
+import { pagePaths } from './ContentPageRoutes';
 
 interface State {
   contentPages: ContentPage[];
@@ -33,7 +34,7 @@ export class ContentPageIndex extends React.Component<{}, State> {
         <ul>
           {contentPages.map((page) => (
             <li key={page.url}>
-              {page.url} <Link to={`/pages/${page.id}/edit`}>(Edit)</Link>
+              {page.url} <Link to={pagePaths.EDIT(page.id)}>(Edit)</Link>
             </li>
           ))}
         </ul>

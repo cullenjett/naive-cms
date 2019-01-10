@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { ContentPage } from '../../interfaces/ContentPage';
 import { contentPageAPI } from '../../api/contentPageAPI';
 import { ContentPageForm, ContentPageFormValues } from './ContentPageForm';
+import { pagePaths } from './ContentPageRoutes';
 
 interface State {
   contentPage?: ContentPage;
@@ -39,14 +40,14 @@ export class EditContentPage extends React.Component<
         ...formValues,
         id,
       })
-      .then(() => history.push('/pages'));
+      .then(() => history.push(pagePaths.INDEX));
   };
 
   deleteContentPage = () => {
     const { history, match } = this.props;
     const id = +match.params.id;
 
-    contentPageAPI.delete(id).then(() => history.push('/pages'));
+    contentPageAPI.delete(id).then(() => history.push(pagePaths.INDEX));
   };
 
   render() {
