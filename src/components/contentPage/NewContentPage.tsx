@@ -1,12 +1,18 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
+import { ContentPage } from '../../interfaces/ContentPage';
 import { ContentPageForm, ContentPageFormValues } from './ContentPageForm';
 import { contentPageAPI } from '../../api/contentPageAPI';
 
 export const NewContentPage: React.FC<RouteComponentProps> = ({ history }) => {
-  const submitNewContentPageForm = (contentPage: ContentPageFormValues) => {
-    return contentPageAPI.save(contentPage).then(() => {
+  const submitNewContentPageForm = (formValues: ContentPageFormValues) => {
+    const newContentPage: ContentPage = {
+      ...formValues,
+      id: Date.now(),
+    };
+
+    return contentPageAPI.save(newContentPage).then(() => {
       history.push('/pages');
     });
   };

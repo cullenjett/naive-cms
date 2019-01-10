@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { ContentPageIndex } from './contentPage/ContentPageIndex';
+import { EditContentPage } from './contentPage/EditContentPage';
 import { Header } from './Header';
 import { NewContentPage } from './contentPage/NewContentPage';
 
@@ -18,6 +19,7 @@ export class App extends React.Component<{}> {
             <Route exact path="/" component={Home} />
             <Route exact path="/pages" component={ContentPageIndex} />
             <Route path="/pages/new" component={NewContentPage} />
+            <Route path="/pages/:id/edit" component={EditContentPage} />
           </Switch>
         </div>
       </div>

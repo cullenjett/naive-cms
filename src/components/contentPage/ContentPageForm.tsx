@@ -2,6 +2,9 @@ import React from 'react';
 
 interface Props {
   onSubmit: (formValues: ContentPageFormValues) => void;
+  initialValues?: {
+    [T in keyof ContentPageFormValues]: ContentPageFormValues[T]
+  };
 }
 
 interface State {
@@ -9,13 +12,20 @@ interface State {
   content: string;
 }
 
-export interface ContentPageFormValues extends State {}
+export interface ContentPageFormValues extends State {
+  id?: number;
+}
 
 export class ContentPageForm extends React.Component<Props, State> {
-  state = {
-    url: '',
-    content: '',
-  };
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      url: '',
+      content: '',
+      ...props.initialValues,
+    };
+  }
 
   onFieldChange: React.ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
@@ -28,9 +38,10 @@ export class ContentPageForm extends React.Component<Props, State> {
   };
 
   onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-    const { url, content }: ContentPageFormValues = this.state;
+    const { id, url, content }: ContentPageFormValues = this.state;
 
     this.props.onSubmit({
+      id,
       url,
       content,
     });
@@ -64,7 +75,7 @@ export class ContentPageForm extends React.Component<Props, State> {
         </div>
 
         <div>
-          <button type="submit">Create new page</button>
+          <button type="submit">Save page</button>
         </div>
       </form>
     );

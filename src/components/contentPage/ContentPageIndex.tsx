@@ -32,7 +32,9 @@ export class ContentPageIndex extends React.Component<{}, State> {
 
         <ul>
           {contentPages.map((page) => (
-            <li key={page.url}>{page.url}</li>
+            <li key={page.url}>
+              {page.url} <Link to={`/pages/${page.id}/edit`}>(Edit)</Link>
+            </li>
           ))}
         </ul>
       </section>
