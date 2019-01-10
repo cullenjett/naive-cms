@@ -3,14 +3,18 @@ import { NavLink } from 'react-router-dom';
 
 export const Header: React.SFC<{}> = () => {
   return (
-    <header>
+    <header style={{ padding: '16px', background: '#e8e8e8' }}>
       <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
+        <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+          <li style={{ display: 'inline-block', marginRight: 8 }}>
+            <NavLink exact to="/" activeStyle={{ fontWeight: 600 }}>
+              Home
+            </NavLink>
           </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
+          <li style={{ display: 'inline-block' }}>
+            <NavLink exact to="/pages" activeStyle={{ fontWeight: 600 }}>
+              All Pages
+            </NavLink>
           </li>
         </ul>
       </nav>
