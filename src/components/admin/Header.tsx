@@ -9,8 +9,8 @@ export const Header: React.SFC<{}> = () => {
       <nav>
         <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
           <li style={{ display: 'inline-block', marginRight: 8 }}>
-            <NavLink exact to="/" activeStyle={{ fontWeight: 600 }}>
-              Home
+            <NavLink exact to="/admin" activeStyle={{ fontWeight: 600 }}>
+              Dashboard
             </NavLink>
           </li>
           <li style={{ display: 'inline-block' }}>

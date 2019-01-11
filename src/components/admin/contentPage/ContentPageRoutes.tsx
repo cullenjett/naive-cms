@@ -6,9 +6,9 @@ import { EditContentPage } from './EditContentPage';
 import { NewContentPage } from './NewContentPage';
 
 export const pagePaths = {
-  INDEX: '/pages',
-  NEW: '/pages/new',
-  EDIT: (id: number | string = ':id') => `/pages/${id}/edit`,
+  INDEX: '/admin/pages',
+  NEW: '/admin/pages/new',
+  EDIT: (id: number | string = ':id') => `/admin/pages/${id}/edit`,
 };
 
 export const ContentPageRoutes: React.FC<{}> = () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { ContentPage } from '../../interfaces/ContentPage';
-import { contentPageAPI } from '../../api/contentPageAPI';
+import { ContentPage } from '../../../interfaces/ContentPage';
+import { contentPageAPI } from '../../../api/contentPageAPI';
 import { pagePaths } from './ContentPageRoutes';
 import { previewPaths } from '../preview/PreviewRoutes';
 
@@ -29,7 +29,7 @@ export class ContentPageIndex extends React.Component<{}, State> {
     return (
       <section>
         <h1>
-          Pages (<Link to="/pages/new">Create new page</Link>)
+          Pages (<Link to={pagePaths.NEW}>Create new page</Link>)
         </h1>
 
         <ul>

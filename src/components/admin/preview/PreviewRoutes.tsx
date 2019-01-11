@@ -4,8 +4,8 @@ import { Switch, Route, RouteComponentProps } from 'react-router-dom';
 import { PreviewPage } from './PreviewPage';
 
 export const previewPaths = {
-  INDEX: '/preview',
-  VIEW: (id: number | string = ':id') => `/preview/${id}`,
+  INDEX: '/admin/preview',
+  VIEW: (id: number | string = ':id') => `/admin/preview/${id}`,
 };
 
 export const PreviewRoutes: React.FC<RouteComponentProps> = ({ history }) => {

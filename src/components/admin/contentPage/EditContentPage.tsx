@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 
-import { ContentPage } from '../../interfaces/ContentPage';
-import { contentPageAPI } from '../../api/contentPageAPI';
+import { ContentPage } from '../../../interfaces/ContentPage';
+import { contentPageAPI } from '../../../api/contentPageAPI';
 import { ContentPageForm, ContentPageFormValues } from './ContentPageForm';
 import { pagePaths } from './ContentPageRoutes';
 import { previewPaths } from '../preview/PreviewRoutes';

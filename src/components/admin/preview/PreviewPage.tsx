@@ -2,8 +2,8 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import marked from 'marked';
 
-import { ContentPage } from '../../interfaces/ContentPage';
-import { contentPageAPI } from '../../api/contentPageAPI';
+import { ContentPage } from '../../../interfaces/ContentPage';
+import { contentPageAPI } from '../../../api/contentPageAPI';
 
 interface State {
   contentPage?: ContentPage;

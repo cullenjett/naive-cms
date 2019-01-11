@@ -1,9 +1,9 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { ContentPage } from '../../interfaces/ContentPage';
+import { ContentPage } from '../../../interfaces/ContentPage';
 import { ContentPageForm, ContentPageFormValues } from './ContentPageForm';
-import { contentPageAPI } from '../../api/contentPageAPI';
+import { contentPageAPI } from '../../../api/contentPageAPI';
 import { pagePaths } from './ContentPageRoutes';
 
 export const NewContentPage: React.FC<RouteComponentProps> = ({ history }) => {
