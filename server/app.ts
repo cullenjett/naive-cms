@@ -1,13 +1,23 @@
 import Koa from 'koa';
-import Router from 'koa-router';
+import { ApolloServer, gql } from 'apollo-server-koa';
 
 export const app = new Koa();
-const router = new Router();
 
-router.get('/api', async (ctx) => {
-  ctx.body = {
-    foo: 'bar',
-  };
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`;
+
+const resolvers = {
+  Query: {
+    hello: () => 'Hello, GraphQL',
+  },
+};
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
 });
 
-app.use(router.routes());
+server.applyMiddleware({ app });
