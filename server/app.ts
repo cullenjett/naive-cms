@@ -1,19 +1,10 @@
 import Koa from 'koa';
-import { ApolloServer, gql } from 'apollo-server-koa';
+import { ApolloServer } from 'apollo-server-koa';
+
+import { typeDefs } from './schema/index';
+import { resolvers } from './resolvers/index';
 
 export const app = new Koa();
-
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => 'Hello, GraphQL',
-  },
-};
 
 const server = new ApolloServer({
   typeDefs,
