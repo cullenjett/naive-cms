@@ -6,6 +6,7 @@
     "@types/jest": "23.3.12",
     "@types/koa": "^2.0.48",
     "@types/marked": "^0.6.0",
+    "@types/mongodb": "^3.1.18",
     "@types/node": "10.12.18",
     "@types/react": "16.7.18",
     "@types/react-dom": "16.0.11",
@@ -14,6 +15,7 @@
     "graphql": "^14.0.2",
     "koa": "^2.6.2",
     "marked": "^0.6.0",
+    "mongodb": "^3.1.10",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
@@ -23,6 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:docker": "docker-compose up --build",
     "start:server": "ts-node-dev --no-notify server/index",
     "build": "react-scripts build",
     "test": "react-scripts test",

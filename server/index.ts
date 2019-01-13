@@ -1,3 +1,13 @@
 import { app } from './app';
+import { connectToDB } from './db';
 
-app.listen(4000, () => console.log('API server running on localhost:4000'));
+const PORT = 4000;
+
+connectToDB()
+  .then((db) => {
+    app.context.db = db;
+    app.listen(PORT, () => console.log(`API server running on port ${PORT}`));
+  })
+  .catch((err) => {
+    console.error(err);
+  });
