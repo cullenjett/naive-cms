@@ -9,5 +9,11 @@ export const pageResolvers: IResolverObject<Page, Context> = {
     },
   },
 
+  Mutation: {
+    createPage: async (_parent, args, ctx, _info) => {
+      return ctx.pageService.create(args.page);
+    },
+  },
+
   Page: {},
 };

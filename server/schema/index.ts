@@ -9,4 +9,11 @@ const Query = gql`
   }
 `;
 
-export const typeDefs = [Query, Page];
+// We need a base Mutation type to extend in individual type definitions
+const Mutation = gql`
+  type Mutation {
+    _empty: Boolean
+  }
+`;
+
+export const typeDefs = [Query, Mutation, Page];

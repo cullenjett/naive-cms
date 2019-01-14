@@ -5,6 +5,15 @@ export const Page = gql`
     page(id: ID): Page
   }
 
+  extend type Mutation {
+    createPage(page: NewPageInput): Page
+  }
+
+  input NewPageInput {
+    url: String
+    content: String
+  }
+
   type Page {
     id: ID!
     url: String
