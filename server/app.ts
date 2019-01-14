@@ -9,6 +9,11 @@ export const app = new Koa();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: () => {
+    return {
+      db: app.context.db,
+    };
+  },
 });
 
 server.applyMiddleware({ app });
