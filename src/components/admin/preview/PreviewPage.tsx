@@ -2,47 +2,37 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import marked from 'marked';
 
-import { ContentPage } from '../../../interfaces/ContentPage';
-import { contentPageAPI } from '../../../api/contentPageAPI';
-
-interface State {
-  contentPage?: ContentPage;
-}
+import {
+  ContentPageQuery,
+  QUERY,
+} from '../contentPage/queries/ContentPageQuery';
 
 interface RouteParams {
   id: string;
 }
 
-export class PreviewPage extends React.Component<
-  RouteComponentProps<RouteParams>
-> {
-  state: State = {
-    contentPage: undefined,
-  };
+export const PreviewPage: React.FC<RouteComponentProps<RouteParams>> = ({
+  match,
+}) => {
+  const { id } = match.params;
 
-  componentDidMount() {
-    const contentPageID = +this.props.match.params.id;
+  return (
+    <ContentPageQuery query={QUERY} variables={{ id }}>
+      {({ data }) => {
+        if (!data || !data.page) {
+          return <p>Loading...</p>;
+        }
 
-    contentPageAPI.find(contentPageID).then((contentPage) => {
-      this.setState({
-        contentPage,
-      });
-    });
-  }
+        const contentPage = data.page;
 
-  render() {
-    const { contentPage } = this.state;
-
-    if (!contentPage) {
-      return <p>Loading...</p>;
-    }
-
-    return (
-      <div
-        dangerouslySetInnerHTML={{
-          __html: marked(contentPage.content),
-        }}
-      />
-    );
-  }
-}
+        return (
+          <div
+            dangerouslySetInnerHTML={{
+              __html: marked(contentPage.content),
+            }}
+          />
+        );
+      }}
+    </ContentPageQuery>
+  );
+};

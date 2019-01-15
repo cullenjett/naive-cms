@@ -1,5 +1,5 @@
 export interface ContentPage {
-  id: number;
+  id: string;
   url: string;
   content: string;
 }

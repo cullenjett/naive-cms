@@ -9,14 +9,14 @@ export const contentPageAPI = {
     return Promise.resolve(pages);
   },
 
-  delete(id: number): Promise<void> {
+  delete(id: string): Promise<void> {
     const pages = getItem<ContentPage[]>(STORAGE_NAMESPACE) || [];
     const updatedPages = pages.filter((page) => page.id !== id);
     saveItem(STORAGE_NAMESPACE, updatedPages);
     return Promise.resolve();
   },
 
-  edit(id: number, updatedPage: ContentPage): Promise<void> {
+  edit(id: string, updatedPage: ContentPage): Promise<void> {
     const pages = getItem<ContentPage[]>(STORAGE_NAMESPACE) || [];
     const updatedPages = pages.map((page) => {
       if (page.id !== id) {
@@ -29,7 +29,7 @@ export const contentPageAPI = {
     return Promise.resolve();
   },
 
-  find(id: number): Promise<ContentPage | undefined> {
+  find(id: string): Promise<ContentPage | undefined> {
     const pages = getItem<ContentPage[]>(STORAGE_NAMESPACE) || [];
     const page = pages.find((p) => p.id === id);
     return Promise.resolve(page);

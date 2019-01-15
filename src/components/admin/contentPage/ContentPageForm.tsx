@@ -13,7 +13,7 @@ interface State {
 }
 
 export interface ContentPageFormValues extends State {
-  id?: number;
+  id?: string;
 }
 
 export class ContentPageForm extends React.Component<Props, State> {

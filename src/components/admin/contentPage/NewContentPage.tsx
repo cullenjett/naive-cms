@@ -10,7 +10,7 @@ export const NewContentPage: React.FC<RouteComponentProps> = ({ history }) => {
   const submitNewContentPageForm = (formValues: ContentPageFormValues) => {
     const newContentPage: ContentPage = {
       ...formValues,
-      id: Date.now(),
+      id: String(Date.now()),
     };
 
     return contentPageAPI.save(newContentPage).then(() => {
