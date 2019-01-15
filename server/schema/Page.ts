@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-koa';
 export const Page = gql`
   extend type Query {
     page(id: ID): Page
+    pages: [Page]
   }
 
   extend type Mutation {

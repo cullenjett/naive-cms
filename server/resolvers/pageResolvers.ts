@@ -7,6 +7,9 @@ export const pageResolvers: IResolverObject<Page, Context> = {
     page: async (_parent, args, ctx, _info) => {
       return ctx.pageService.find(args.id);
     },
+    pages: async (_parent, args, ctx, _info) => {
+      return ctx.pageService.all();
+    },
   },
 
   Mutation: {
